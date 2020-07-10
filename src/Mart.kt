@@ -96,13 +96,13 @@ open class Mart {
             inputBarang = readLine().toString()
             barangMartArray.add(inputBarang)
 
-//            print("Input Harga Satuan Barang : ")
-//            hargaBarang = Integer.valueOf(readLine())
-//            hargaBarangArray.add(hargaBarang)
-//
-//            print("Input Jumlah Barang : ")
-//            jumlahBarang = Integer.valueOf(readLine())
-//            jumlahBarangArray.add(jumlahBarang)
+            print("Input Harga Satuan Barang : ")
+            hargaBarang = Integer.valueOf(readLine())
+            hargaBarangArray.add(hargaBarang)
+
+            print("Input Jumlah Barang : ")
+            jumlahBarang = Integer.valueOf(readLine())
+            jumlahBarangArray.add(jumlahBarang)
 
             print("input barang lagi (y/n) : ")
         } while (done == 1)
@@ -137,16 +137,19 @@ open class Mart {
         barangMartArray.forEach {
             println(it)
         }
+
+        hargaBarangArray.forEach {
+            println(it)
+        }
+
+        jumlahBarangArray.forEach {
+            println(it)
+        }
+
+
+
         println("-------------------------------------------")
-
-
-
     }
-
-
-
-
-
 
     fun inputAgain(){
         when(readLine()){
@@ -157,6 +160,7 @@ open class Mart {
             }
         }
     }
+
 
 }
 
