@@ -8,7 +8,12 @@ open class Mart {
     var inputPassword : String = ""
     var memberMart = mutableListOf<String>()
     var nonMemberMart = mutableListOf<String>()
+    var namaBarang = mutableListOf<String>()
     var inputMember : String =""
+    var inputBarang :String =""
+    var hargaBarang : Int = 0
+    var jumlahBarang : Int = 0
+
     //var status : Int = 0
 
     // login
@@ -68,24 +73,54 @@ open class Mart {
 
     // member
     fun member(){
-        println("-------------------------")
+        println("----------------------------")
         println("Checkout Pelanggan Member")
-        println("-------------------------")
+        println("----------------------------")
         print("Input Nama Member : ")
         inputMember = readLine().toString()
         memberMart.add(inputMember)
-        println("-------------------------")
+        println("----------------------------")
         memberInput()
     }
 
     fun memberInput(){
-        println("--------------------------")
+        do {
+            var done = true
+            println("------------------------------------------")
+            println("Checkout pelanggan member : ${inputMember}")
+            println("------------------------------------------")
+            print("Input Nama Barang : ")
+            inputBarang = readLine().toString()
+            memberMart.add(inputMember)
+            print("Input Harga Satuan Barang : ")
+            hargaBarang = Integer.valueOf(readLine())
+            print("Input Jumlah Barang : ")
+            jumlahBarang = Integer.valueOf(readLine())
+        } while (done == true)
+            inputAgain()
+    }
+
+
+    fun cetak (){
+
     }
 
 
     // non - member
     fun nonMember(){
         //
+    }
+
+
+
+    fun inputAgain(){
+        when(readLine()){
+            "y" -> memberInput()
+            "n" -> cetak()
+            else -> {
+                println("input yang dimasukkan tidak tersedia")
+            }
+        }
     }
 
 }
