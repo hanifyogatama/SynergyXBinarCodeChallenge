@@ -1,22 +1,11 @@
 
-
 fun main(){
     intro("Synergy_Mart")
-    home()
+    Login()
 //    intro("Synergy_Mart","Bye")
 }
 
-fun home(){
-    println("""
-        1. Login Kasir
-        0. Keluar
-    """.trimIndent())
-    print("pilih : ")
-    when(readLine()){
-        "1" -> Mart().login()
-        "0" -> return
-    }
-}
+
 
 fun intro (martName: String){
     println("------------------------------")

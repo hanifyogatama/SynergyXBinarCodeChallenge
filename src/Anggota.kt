@@ -1,11 +1,4 @@
-open class Anggota {
-
-    open fun doInput (namaBarang:String, satuanBarang: String, jumlahBarang : String){
-
-    }
-
-
-    open fun jenisAnggota (jenis:String){
-
-    }
+abstract class Anggota {
+    abstract fun member ()
+    abstract fun nonMeber ()
 }
