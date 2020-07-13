@@ -5,18 +5,15 @@ open class Login () {
     var inputPassword : String = ""
 
     fun login(){
-        println("------------------------------")
-        println("Selamat datang di synergi mart")
-        println("------------------------------")
         print("Username : ")
         inputUsername = readLine().toString()
         print("Password : ")
-        inputPassword = readLine(). toString()
+        inputPassword = readLine().toString()
             if ( (inputUsername == username) && (inputPassword == password) ) {
                 Menu().cekMenu(username)
             } else {
                 print("Username / password tidak terdaftar")
-                Menu().menu()
+                Menu().mainMenu()
             }
 
     }

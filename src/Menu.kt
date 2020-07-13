@@ -1,6 +1,6 @@
 open class Menu {
 
-    fun menu () {
+    fun mainMenu() {
         println("""
         1. Login Kasir
         0. Keluar
@@ -36,13 +36,13 @@ open class Menu {
         println("Checkput Pelanggan")
         println("---------------------")
         println("""
-            1. pelanggan Member 
+            1. Pelanggan Member 
             2. Pelanggan non-member
         """.trimIndent())
         print("Pilih :")
         when(readLine()){
-            "1" -> Member()
-           // "2" ->  nonMemberInput()
+            "1" -> Member().inputBelanjaan()
+            "2" ->  NonMember().inputBelanjaan()
             else -> {
                 println("input yang dimasukkan tidak tersedia")
             }

@@ -1,4 +1,5 @@
 abstract class Anggota {
-    abstract fun member ()
-    abstract fun nonMeber ()
+    abstract fun inputBelanjaan()
+    abstract fun perhitunganBelanja()
+    abstract fun pembayaran()
 }

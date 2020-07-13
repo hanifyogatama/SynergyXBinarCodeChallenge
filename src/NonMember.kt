@@ -1,5 +1,4 @@
-class Member () : Anggota (){
-    var namaMember: String = ""
+class NonMember() :Anggota(){
     protected fun Int.idr():String{
         return ("Rp. $this,00")
     }
@@ -7,28 +6,23 @@ class Member () : Anggota (){
     override fun inputBelanjaan() {
         Mart.barangMartArray
         println("----------------------------")
-        println("Checkout Pelanggan Member")
+        println("Checkout Pelanggan Non Member")
         println("----------------------------")
-        print("Input Nama Member : ")
-        namaMember = readLine().toString()
-        println("------------------------------------------")
-        println("Checkout pelanggan member : ${namaMember}")
-        println("------------------------------------------")
         do {
-
             print("Input Nama Barang : ")
             var inputBarang = readLine().toString()
-            Mart.barangMartArray.add(inputBarang)
-
             print("Input Harga Satuan Barang : ")
             var hargaBarang = Integer.valueOf(readLine())
-            Mart.hargaBarangArray.add(hargaBarang)
-
             print("Input Jumlah Barang : ")
             var jumlahBarang = Integer.valueOf(readLine())
-            Mart.jumlahBarangArray.add(jumlahBarang)
             Mart.subTotalArray.add(hitung(hargaBarang,jumlahBarang))
 
+            if(Mart.barangMartArray != null && Mart.hargaBarangArray != null && Mart.jumlahBarangArray != null){
+                Mart.barangMartArray.add(inputBarang)
+                Mart.hargaBarangArray.add(hargaBarang)
+                Mart.jumlahBarangArray.add(jumlahBarang)
+            }
+            println("-------------------------------")
             print("input barang lagi (y/n) : ")
             val inputan = readLine()!!
             val inputanChar : Char= inputan.single()
@@ -44,7 +38,7 @@ class Member () : Anggota (){
 
     override fun perhitunganBelanja(){
         println("----------------------------")
-        println("Checkout pelanggan member : ${namaMember}")
+        println("Checkout pelanggan non member ")
         println("----------------------------")
         var i = 0
         while(i < Mart.barangMartArray.size ) {
@@ -57,7 +51,7 @@ class Member () : Anggota (){
             Total Belanja : ${Mart.totalBelanja.idr()}
             -------------------------
         """.trimIndent())
-        if (Mart.totalBelanja > 50000) {
+        if (Mart.totalBelanja > 70000) {
             diskon()
         }
         pembayaran()
@@ -69,12 +63,12 @@ class Member () : Anggota (){
     }
 
     private fun diskon(){
-        Mart.DISKONMEMBER
-        var totalDiskon = Mart.totalBelanja * Mart.DISKONMEMBER
+        Mart.DISKONNONMEMBER
+        var totalDiskon = Mart.totalBelanja * Mart.DISKONNONMEMBER
         println("""
-            Selamat ! karena total belanjaan ${namaMember} lebih besar dari Rp. 50000,
-            maka mendapatkan potongan sebesar 9.5%
-            ${namaMember} cukup membayar Rp. ${totalDiskon}
+            Selamat ! karena total belanjaan lebih besar dari Rp. 70000,
+            maka mendapatkan potongan sebesar 4.1%
+            cukup membayar Rp. ${totalDiskon}
         """.trimIndent())
         Mart.totalBelanja = totalDiskon.toInt()
     }
@@ -82,7 +76,7 @@ class Member () : Anggota (){
     override fun pembayaran(){
         var kembalian : Int = 0
         println("----------------------------")
-        println("Checkout pelanggan member : ${namaMember}")
+        println("Checkout pelanggan non member ")
         println("----------------------------")
         println("Total belanja : Rp ${Mart.totalBelanja}")
         print("input uang customer : Rp. ")
@@ -90,6 +84,4 @@ class Member () : Anggota (){
         print("kembalian : Rp. $kembalian")
         kembalian -= uangCustomer
     }
-
-
 }
