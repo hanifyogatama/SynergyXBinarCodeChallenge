@@ -33,13 +33,7 @@ class Member () : Anggota (){
             val inputan = readLine()!!
             val inputanChar : Char= inputan.single()
         } while (inputanChar == 'y')
-        when(readLine()){
-            "y" -> inputBelanjaan()
-            "n" -> perhitunganBelanja()
-            else -> {
-                println("input yang dimasukkan tidak tersedia")
-            }
-        }
+        perhitunganBelanja()
     }
 
     override fun perhitunganBelanja(){
